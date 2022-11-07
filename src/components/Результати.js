@@ -1,17 +1,18 @@
 import * as React from "react"
 import i18n from "es2015-i18n-tag"
-import "../css/Results.css"
-import { Consumer, total } from "../data"
-import Emoji from "./Emoji"
+import "../css/Результати.css"
+import { Споживач, total } from "../data"
+import Емоджі from "./Емоджі"
 import Twitter from "./Twitter"
+import { кнопка } from "../ua"
 
-const Results = () => (
-  <Consumer>
+const Результати = () => (
+  <Споживач>
     {({
-      actions: { showResults },
+      дії: { показатиРезультати },
       hits,
       flags,
-      resultsVisible,
+      показуватиРезультати,
     }) => {
       const wrong = Math.round(
         ((total - hits + flags - hits) / total) * 100,
@@ -19,7 +20,7 @@ const Results = () => (
       let face = `🤔`
       let title = ``
       let label = i18n`Pending…`
-      if (resultsVisible) {
+      if (показуватиРезультати) {
         if (wrong >= 100) {
           label = `${wrong}% ${i18n`wrong`}`
           if (wrong === 100) {
@@ -60,22 +61,22 @@ const Results = () => (
         <div className="Results">
           <div className="Results-face" title={title}>
             {label}&nbsp;
-            <Emoji symbol={face} />
+            <Емоджі символ={face} />
           </div>
           <div className="Results-controls">
-            <button
-              className="Results-submit"
-              onClick={() => showResults()}
-              disabled={resultsVisible}
+            <кнопка
+              назваКласа="Results-submit"
+              наКлік={() => показатиРезультати()}
+              вимкнено={показуватиРезультати}
             >
               {i18n`Show Results`}
-            </button>
-            <Twitter disabled={!resultsVisible} text={tweet} />
+            </кнопка>
+            <Twitter disabled={!показуватиРезультати} text={tweet} />
           </div>
         </div>
       )
     }}
-  </Consumer>
+  </Споживач>
 )
 
-export default Results
+export default Результати

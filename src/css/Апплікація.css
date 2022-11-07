@@ -3,11 +3,11 @@
   width: var(--app-width);
   margin: 10px 0;
 }
-.App-contents {
+.Апплікація-зміст {
   display: flex;
   flex-direction: row-reverse;
 }
-.App-title {
+.Апплікація-назва {
   background: #00f;
   color: #fff;
   margin: 2px 2px 0;
@@ -19,14 +19,14 @@
   padding: 4px 0 3px 4px;
   white-space: nowrap;
 }
-.App-title svg {
+.Апплікація-назва svg {
   width: 16px;
   display: inline-block;
   vertical-align: top;
 }
-.App-title svg:last-child {
+.Апплікація-назва svg:last-child {
   margin-left: .25em;
 }
-.App-title svg:first-child {
+.Апплікація-назва svg:first-child {
   margin-right: .25em;
 }

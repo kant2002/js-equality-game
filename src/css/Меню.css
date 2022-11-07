@@ -1,35 +1,35 @@
-.Menu {
+.Меню {
   display: flex;
   user-select: none;
   margin: 5px 10px 15px;
   align-items: flex-end;
 }
-.Menu li {
+.Меню li {
   margin-right: 20px;
 }
-.Menu span span {
+.Меню span span {
   text-decoration: underline;
 }
-.Menu a {
+.Меню a {
   text-decoration: none;
   color: inherit;
   cursor: pointer;
 }
-.Menu button:hover,
-.Menu a:hover {
+.Меню button:hover,
+.Меню a:hover {
   text-decoration: underline;
 }
-.Menu button:not([disabled]):active,
-.Menu a:active {
+.Меню button:not([disabled]):active,
+.Меню a:active {
   position: relative;
   top: 1px;
   left: 1px;
 }
-.Menu button:not([disabled]) {
+.Меню button:not([disabled]) {
   border-style: none;
   padding: 0;
   font-size: inherit;
 }
-.Menu button:hover {
+.Меню button:hover {
   background: transparent;
 }

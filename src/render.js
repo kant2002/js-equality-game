@@ -1,8 +1,8 @@
 import React from "react"
 import ReactDOM from "react-dom"
-import App from "./components/App"
+import Апплікація from "./components/Апплікація"
 
 const render = () =>
-  void ReactDOM.render(<App />, document.querySelector(`#root`))
+  void ReactDOM.render(<Апплікація />, document.querySelector(`#root`))
 
 export default render

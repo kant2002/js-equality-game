@@ -1,0 +1,50 @@
+.Апплікація-емодзі-false .Emoji {
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  background-size: 1em 1em;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+}
+
+.Апплікація-емодзі-false .CellContent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.CellContent .Emoji {
+  display: none;
+}
+.Апплікація-результати-true .Cell-loose-true:not(.Cell-strict-true) .CellContent-on-false .Emoji-miss {
+  display: inline;
+  color: red;
+}
+.Апплікація-результати-true .Cell-loose-true .CellContent-on-true .Emoji-hit,
+.Cell-strict-true .CellContent .Emoji-hit {
+  display: inline;
+}
+.Emoji-hit {
+  color: var(--yes-color);
+}
+.Апплікація-результати-false .Cell:not(.Cell-strict-true) .CellContent-on-true .Emoji-flag {
+  display: inline;
+}
+.Апплікація-емодзі-false .Emoji-symbol {
+  display: none;
+}
+.Апплікація-емодзі-true .Emoji {
+  background-image: none !important;
+}
+
+.Апплікація-емодзі-false .Sidebar .Emoji {
+  margin: 0 .25em;
+}
+
+.Апплікація-емодзі-false .Results .Emoji:first-child {
+  margin-left: 0;
+}
+
+.Results-face .Emoji {
+  line-height: 1em;
+  margin-right: 5px;
+}

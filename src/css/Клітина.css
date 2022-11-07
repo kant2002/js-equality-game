@@ -55,11 +55,11 @@ button,
 }
 
 
-.App-results-true .CellControl {
+.Апплікація-результати-true .CellControl {
   display: none;
 }
 .Cell-strict-true .CellContent,
-.App-results-true .CellContent-on-true {
+.Апплікація-результати-true .CellContent-on-true {
   border-color: var(--border-hl2);
   border-width: 1px;
   border-style: none solid solid none;

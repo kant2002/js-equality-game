@@ -32,7 +32,7 @@
   justify-content: center;
 }
 .Results-wrapper,
-.App-results-true .Results-face {
+.Апплікація-результати-true .Results-face {
   cursor: help;
 }
 
@@ -45,7 +45,7 @@
   margin-right: 5px;
 }
 
-.App-results-true .Cell-strict-true .CellContent:before {
+.Апплікація-результати-true .Cell-strict-true .CellContent:before {
   opacity: .35;
 }
 

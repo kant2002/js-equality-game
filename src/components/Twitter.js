@@ -1,5 +1,6 @@
 import * as React from "react"
 import i18n from "es2015-i18n-tag"
+import { кнопка } from "../ua"
 
 const windowOptions = `scrollbars=yes,resizable=yes,toolbar=no,location=yes`
 const width = 550
@@ -33,9 +34,9 @@ const Twitter = ({ text, disabled }) => {
     />
   )
   return disabled ? (
-    <button className="Twitter" disabled>
+    <кнопка назваКласа="Twitter" вимкнено>
       {img}
-    </button>
+    </кнопка>
   ) : (
     <a
       title={i18n`Share your result on Twitter`}

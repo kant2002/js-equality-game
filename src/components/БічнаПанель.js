@@ -1,26 +1,26 @@
 import * as React from "react"
 import i18n from "es2015-i18n-tag"
-import "../css/Sidebar.css"
-import Results from "./Results"
-import Menu from "./Menu"
-import Score from "./Score"
-import { Consumer, total } from "../data"
-import Emoji from "./Emoji"
+import "../css/БічнаПанель.css"
+import Результати from "./Результати"
+import Меню from "./Меню"
+import Рахунок from "./Рахунок"
+import { Споживач, total } from "../data"
+import Емоджі from "./Емоджі"
 import translationData from "../translationData"
 
-const Sidebar = () => (
-  <Consumer>
+const БічнаПанель = () => (
+  <Споживач>
     {({
       hits,
       flags,
-      resultsVisible,
-      locale,
-      actions: { updateLocale },
+      показуватиРезультати,
+      локаль,
+      дії: { змінитиЛокаль },
     }) => (
-      <div className="Sidebar">
-        <Menu />
+      <div className="БічнаПанель">
+        <Меню />
 
-        <div className="Sidebar-group Sidebar-about">
+        <div className="БічнаПанель-група Sidebar-about">
           <label>{i18n`About`}</label>
           <p>
             {i18n`Test your mettle against what's considered a textbook example of a confusing language design flaw – JavaScript's loose equality operator.`}
@@ -34,7 +34,7 @@ const Sidebar = () => (
             {i18n`The table is diagonally symmetrical, so only one side needs to be flagged.`}
           </p>
           <p>{i18n`Wrong guesses count against the final score:`}</p>
-          <p className="Sidebar-math">
+          <p className="БічнаПанель-матем">
             {i18n`wrongness`} =&nbsp;
             <span>
               <span>{i18n`flags - hits + misses`}</span>
@@ -44,10 +44,10 @@ const Sidebar = () => (
           </p>
         </div>
 
-        <div className="Sidebar-group Sidebar-language">
+        <div className="БічнаПанель-група БічнаПанель-мова">
           <label>{i18n`Language`}</label>
           <p>
-            <select value={locale} onChange={updateLocale}>
+            <select value={локаль} onChange={змінитиЛокаль}>
               {[...translationData].map(([code, { name }]) => (
                 <option value={code} key={code}>
                   {name}
@@ -57,41 +57,41 @@ const Sidebar = () => (
           </p>
         </div>
 
-        <div className="Sidebar-group Sidebar-score">
+        <div className="БічнаПанель-група Sidebar-score">
           <label>{i18n`Score`}</label>
-          <div className="Sidebar-group-container">
+          <div className="БічнаПанель-група-container">
             <div
               className="Results-wrapper Results-flags"
               title={i18n`Flags`}
             >
-              <Emoji symbol="🚩" />
-              <Score text={String(flags)} />
+              <Емоджі символ="🚩" />
+              <Рахунок текст={String(flags)} />
             </div>
             <div
               className="Results-wrapper Results-hits"
               title={i18n`Hits`}
             >
-              <Emoji symbol="✔️" label="hit" />
-              <Score text={resultsVisible ? hits : ``} />
+              <Емоджі символ="✔️" позначка="hit" />
+              <Рахунок текст={показуватиРезультати ? hits : ``} />
             </div>
             <div
               className="Results-wrapper Results-misses"
               title={i18n`Misses`}
             >
-              <Emoji symbol="❌" />
-              <Score
-                text={resultsVisible ? total - hits : ``}
+              <Емоджі символ="❌" />
+              <Рахунок
+                текст={показуватиРезультати ? total - hits : ``}
               />
             </div>
           </div>
         </div>
-        <div className="Sidebar-group Sidebar-results">
+        <div className="БічнаПанель-група Sidebar-results">
           <label>{i18n`Results`}</label>
-          <Results />
+          <Результати />
         </div>
       </div>
     )}
-  </Consumer>
+  </Споживач>
 )
 
-export default Sidebar
+export default БічнаПанель

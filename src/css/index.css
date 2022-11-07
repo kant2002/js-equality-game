@@ -57,10 +57,10 @@ ol, ul, li {
   padding: 0;
   list-style: none;
 }
-.Menu {
+.Меню {
   order: -2;
 }
-.Sidebar-language {
+.БічнаПанель-мова {
   order: -1;
 }
 code {
@@ -83,27 +83,27 @@ code {
     --app-width: calc(110px + (var(--cell-size) * var(--cols)));
     --cell-size: 30px;
   }
-  .App .App-contents {
+  .App .Апплікація-зміст {
     flex-direction: column-reverse;
   }
-  .App .Sidebar {
+  .App .БічнаПанель {
     flex-wrap: wrap;
     flex-direction: row;
   }
-  .App .Sidebar-score .Sidebar-group-container {
+  .App .БічнаПанель-score .БічнаПанель-group-container {
     margin-left: 0;
   }
   .App-credit {
     margin-bottom: .5em;
   }
-  .Sidebar-about {
+  .БічнаПанель-about {
     max-width: 75%;
   }
-  .Sidebar-language {
+  .БічнаПанель-мова {
     flex-grow: 1;
     order: 0;
   }
-  .Menu {
+  .Меню {
     width: 100%;
   }
 }
@@ -112,7 +112,7 @@ code {
     --app-width: calc(100vw - 20px);
     --cell-size: 24px;
   }
-  .Sidebar-about {
+  .БічнаПанель-about {
     max-width: 100%;
   }
 }
@@ -129,7 +129,7 @@ code {
   cursor: default;
 }
 
-.Sidebar-language select {
+.БічнаПанель-мова select {
   width: 100%;
   font-size: 1rem;
 }

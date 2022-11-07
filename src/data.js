@@ -1,9 +1,9 @@
 import createContext from "immer-wieder"
 import i18n, { i18nConfig } from "es2015-i18n-tag"
-import translationData from "./translationData"
+import даніПерекладу from "./translationData"
 
 /* eslint-disable no-new-func, eqeqeq */
-export const values = [
+export const значення = [
   `true`,
   `false`,
   `1`,
@@ -25,108 +25,108 @@ export const values = [
   `[0]`,
   `[1]`,
   `NaN`,
-].map(name => ({
-  name,
-  value: () => new Function(`return ${name}`)(),
+].map(назва => ({
+  назва,
+  значення: () => new Function(`return ${назва}`)(),
 }))
 
-const grid = values.map(a =>
-  values.map(b => ({
+const сітка = значення.map(a =>
+  значення.map(b => ({
     a,
     b,
-    loose: a.value() == b.value(),
-    strict: a.value() === b.value(),
-    toggled: false,
+    loose: a.значення() == b.значення(),
+    strict: a.значення() === b.значення(),
+    увімкнено: false,
   })),
 )
 export const total =
   []
-    .concat(...grid)
+    .concat(...сітка)
     .filter(({ strict, loose }) => loose && !strict).length / 2
 
-const updateTitle = shortLocale => {
+const оновитиЗаголовок = короткаЛокаль => {
   document.title = i18n`JavaScript Equality Table Game`
-  document.documentElement.setAttribute(`lang`, shortLocale)
+  document.documentElement.setAttribute(`lang`, короткаЛокаль)
 }
-const langHash = window.location.hash.slice(1)
-const locale =
-  (langHash &&
-    [...translationData.keys()].find(x =>
-      x.startsWith(langHash),
+const мовнийХеш = window.location.hash.slice(1)
+const локаль =
+  (мовнийХеш &&
+    [...даніПерекладу.keys()].find(x =>
+      x.startsWith(мовнийХеш),
     )) ||
   `en-US`
 i18nConfig({
-  locales: locale,
-  translations: translationData.get(locale).data,
+  locales: локаль,
+  translations: даніПерекладу.get(локаль).data,
 })
-const shortenLocale = longLocale => {
-  const [shortLocale] = longLocale.split(`-`)
-  return shortLocale
+const вкороченаЛокаль = довгаЛокаль => {
+  const [короткаЛокаль] = довгаЛокаль.split(`-`)
+  return короткаЛокаль
 }
-updateTitle(shortenLocale(locale))
+оновитиЗаголовок(вкороченаЛокаль(локаль))
 
-const init = draft =>
+const ініц = draft =>
   void Object.assign(draft, {
-    grid,
-    resultsVisible: false,
+    сітка,
+    показуватиРезультати: false,
     misses: 0,
     hits: 0,
     flags: 0,
   })
 
 const applyInit = o => {
-  init(o)
+  ініц(o)
   return o
 }
-
-export const { Provider, Consumer } = createContext(setState =>
+const { Provider, Consumer } = createContext(setState =>
   applyInit({
-    locale,
-    actions: {
-      showResults: () =>
+    локаль,
+    дії: {
+      показатиРезультати: () =>
         void setState(state => {
-          state.resultsVisible = !state.resultsVisible
+          state.показуватиРезультати = !state.показуватиРезультати
         }),
-      toggle: (x, y) =>
-        void setState(draft => {
-          if (draft.resultsVisible) {
+      перемкнути: (x, y) =>
+        void setState(чорновик => {
+          if (чорновик.показуватиРезультати) {
             return
           }
-          const { loose, toggled } = draft.grid[x][y]
-          draft.grid[y][x].toggled = !toggled
+          const { loose, увімкнено } = чорновик.сітка[x][y]
+          чорновик.сітка[y][x].увімкнено = !увімкнено
           if (x !== y) {
-            draft.grid[x][y].toggled = !toggled
+            чорновик.сітка[x][y].увімкнено = !увімкнено
           }
-          draft.flags += !toggled ? 1 : -1
+          чорновик.flags += !увімкнено ? 1 : -1
           if (loose) {
-            draft.hits += !toggled ? 1 : -1
+            чорновик.hits += !увімкнено ? 1 : -1
           } else {
-            draft.misses += !toggled ? 1 : -1
+            чорновик.misses += !увімкнено ? 1 : -1
           }
         }),
-      reset: e => {
+      скинути: e => {
         e.preventDefault()
-        setState(init)
+        setState(ініц)
       },
-      updateLocale: async e => {
-        const locales = e.target.value
-        const translations =
-          (await translationData.get(locales)).data || []
+      змінитиЛокаль: async e => {
+        const локалі = e.target.value
+        const переклади =
+          (await даніПерекладу.get(локалі)).data || []
         i18nConfig({
-          locales,
-          translations,
+          locales: локалі,
+          translations: переклади,
         })
         setState(state => {
-          state.locale = locales
+          state.локаль = локалі
         })
-        const shortLocale = shortenLocale(locales)
+        const короткаЛокаль = вкороченаЛокаль(локалі)
         window.history.replaceState(
           null,
           ``,
-          shortLocale === `en` ? `/` : `#${shortLocale}`,
+          короткаЛокаль === `en` ? `/` : `#${короткаЛокаль}`,
         )
-        updateTitle(shortLocale)
+        оновитиЗаголовок(короткаЛокаль)
       },
     },
   }),
 )
+export { Provider, Consumer as Споживач }

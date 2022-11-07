@@ -3,7 +3,7 @@
   border-spacing: 0;
   white-space: nowrap;
 }
-.Grid-wrapper {
+.Сітка-обгортка {
   --margin: 10px;
   margin: 0 var(--margin) var(--margin) 0;
   position: relative;
@@ -55,23 +55,23 @@
   border-bottom: var(--cell-border2) solid var(--border-hl1);
 }
 
-.Grid-ruler {
+.Сітка-лінійка {
   position: absolute;
   display: none;
   border: 1px dotted #000;
 }
-.Grid-ruler-x {
+.Сітка-лінійка-x {
   left: 0;
   height: calc(var(--cell-size) + 1px);
   border-right-style: none;
 }
-.Grid-ruler-y {
+.Сітка-лінійка-y {
   top: 0;
   width: calc(var(--cell-size) + 1px);
   border-bottom-style: none;
 }
 
-.Grid-tooltip {
+.Сітка-підказка {
   background: #fff;
   position: absolute;
   padding: 4px 6px;
